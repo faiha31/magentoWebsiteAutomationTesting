@@ -32,7 +32,7 @@ public class myFirstTest {
 
 		driver.manage().window().maximize();
 		driver.get(myWebsite);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 	}
 
 	@Test(priority = 1, enabled = true)
@@ -96,45 +96,25 @@ public class myFirstTest {
 
 	}
 
-//	@Test(priority = 3, enabled = true)
-//	public void logInTest() {
-//		WebElement signinPage = driver.findElement(By.linkText("Sign In"));
-//		signinPage.click();
-//
-//		WebElement emailLoginInput = driver.findElement(By.id("email"));
-//		WebElement passwordInput = driver.findElement(By.id("pass"));
-//		WebElement signinButton = driver.findElement(By.id("send2"));
-//
-//		emailLoginInput.sendKeys(emailAdressToLogin);
-//		passwordInput.sendKeys(password);
-//		signinButton.click();
-//
-//		String WelcomeMessage = driver.findElement(By.className("logged-in")).getText();
-//		boolean ActualValue = WelcomeMessage.contains("Welcome");
-//		boolean ExpectedValue = true;
-//
-//		assertEquals(ActualValue, ExpectedValue);
-//
-//	}
 	@Test(priority = 3, enabled = true)
-	public void loginTest() {
-		WebElement LoginPage = driver.findElement(By.linkText("Sign In"));
-		LoginPage.click();
+	public void logInTest() {
+		WebElement signinPage = driver.findElement(By.linkText("Sign In"));
+		signinPage.click();
 
-		WebElement EmailLoginInput = driver.findElement(By.id("email"));
+		WebElement emailLoginInput = driver.findElement(By.id("email"));
 		WebElement passwordInput = driver.findElement(By.id("pass"));
-		WebElement LoginButton = driver.findElement(By.cssSelector(".action.login.primary"));
+		WebElement signinButton = driver.findElement(By.id("send2"));
 
-		EmailLoginInput.sendKeys(emailAdressToLogin);
+		emailLoginInput.sendKeys(emailAdressToLogin);
 		passwordInput.sendKeys(password);
-		LoginButton.click();
+		signinButton.click();
 
 		String WelcomeMessage = driver.findElement(By.className("logged-in")).getText();
-
 		boolean ActualValue = WelcomeMessage.contains("Welcome");
 		boolean ExpectedValue = true;
 
 		assertEquals(ActualValue, ExpectedValue);
+
 	}
 
 	@Test(priority = 4, enabled = false)
